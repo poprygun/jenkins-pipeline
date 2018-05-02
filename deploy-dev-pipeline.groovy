@@ -34,7 +34,7 @@ node {
 
     stage('Push to development environment on PCF'){
         timeout(time: 300, unit: 'SECONDS'){
-             (
+             pushToCloudFoundry (
                     target: pcfDevApiTarget,
                     organization: pcfDevOrg,
                     credentialsId: pcfDevCredentialsId,
