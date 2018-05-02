@@ -29,7 +29,7 @@ node {
 
         sh 'tar -xvzf release-tarball/*.tgz'
         sh 'rm -rf target && mkdir -p target'
-        mv "mv *.${appPackagingType} target/"
+        sh "mv *.${appPackagingType} target/"
     }
 
     stage('Push to development environment on PCF'){
