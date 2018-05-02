@@ -27,6 +27,7 @@ node {
 
         sh 'rm -rf release-archive tarball && mkdir -p release-archive tarball'
         sh "cp target/*.${artifactSuffix} release-archive/"
+        sh "cp manifest.yml release-archive/"
         sh "cd release-archive && tar -czvf ../tarball/${projectAcronym}-build-${BUILD_NUMBER}.tgz . && cd -"
 
         archive 'tarball/*.tgz'
