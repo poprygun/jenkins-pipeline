@@ -1,4 +1,4 @@
-node(label: 'fortify') {
+node {
     String projectAcronym = params['PROJECT_ACRONYM'] ?: error('Mandatory parameter PROJECT_ACRONYM was not provided.')
     String appPackagingType = params['APP_PACKAGING_TYPE'] ?: 'jar'
     String artifactSuffix = appPackagingType.toLowerCase()
@@ -6,7 +6,7 @@ node(label: 'fortify') {
     if (artifactSuffix != 'war' && artifactSuffix != 'jar') error('APP_PACKAGING_TYPE provided should be either war or jar.')
 
     String artifactoryServerId = params['ARTIFACTORY_SERVER_ID'] ?: 'artifactory_qa'
-    String artifactoryBuildRepo = params['ARTIFACTORY_BUILD_REPO'] ?: 'lib-stapshot-local'
+    String artifactoryBuildRepo = params['ARTIFACTORY_BUILD_REPO'] ?: 'libs-stapshot-local'
 
     String pcfDevCredentialsId = params['PCF_DEV_CREDENTIALS_ID'] ?: 'pcf-dev-space'
 //todo fix below
@@ -34,7 +34,7 @@ node(label: 'fortify') {
 
     stage('Push to development environment on PCF'){
         timeout(time: 300, unit: 'SECONDS'){
-            pushToCloudFoundry(
+             (
                     target: pcfDevApiTarget,
                     organization: pcfDevOrg,
                     credentialsId: pcfDevCredentialsId,

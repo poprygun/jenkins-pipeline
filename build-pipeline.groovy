@@ -1,4 +1,4 @@
-node(label: 'fortify'){
+node {
     String projectAcronym = params['PROJECT_ACRONYM'] ?: error('Mandatory parameter PROJECT_ACRONYM was not provided.')
     String gitCloneUrl = params['GIT_CLONE_URL'] ?: error('Mandatory parameter GIT_CLONE_URL was not provided.')
 
