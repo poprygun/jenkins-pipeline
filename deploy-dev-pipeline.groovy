@@ -27,7 +27,7 @@ node {
         }"""
         server.download(downloadSpec)
 
-        sh 'tar xvzf release-tarball/*.tgz'
+        sh 'tar -xvzf release-tarball/*.tgz'
         sh 'rm -rf target && mkdir -p target'
         mv "mv *.${appPackagingType} target/"
     }
