@@ -37,10 +37,8 @@ node {
              pushToCloudFoundry(
                     target: pcfDevApiTarget,
                     organization: pcfDevOrg,
-                    space: pcfDevSpace,
-                    credentialsId: pcfDevCredentialsId,
-                    selfSigned: true,
-                    pluginTimeout: 300
+                    cloudSpace: pcfDevSpace,
+                    credentialsId: pcfDevCredentialsId
             )
         }
     }
