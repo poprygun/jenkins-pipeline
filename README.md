@@ -1,0 +1,5 @@
+- Create Jenkins Job with type `Jenkins Pipeline`.
+- Select Source from github repo.
+- Specify script file name to run.
+- Configure the job to have all the parameters listed in the script..
+- Add trigger to execute deploy after build job.
